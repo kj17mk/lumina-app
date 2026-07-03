@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン | 🏢 社内匿名AI診断</title>
+  <style>
+    /* MBTI風の青緑色の背景 */
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #33a4b6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* 中央の白いカード */
+    .login-card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #425466;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #718096;
+      margin-bottom: 30px;
+    }
+
+    /* 入力フォームの設定 */
+    .input-group {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      color: #4a5568;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+
+    input:focus {
+      border-color: #33a4b6;
+      outline: none;
+    }
+
+    /* 紫色のログインボタン */
+    .login-btn {
+      width: 100%;
+      background-color: #8860a2;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 14px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(136, 96, 162, 0.2);
+      transition: all 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .login-btn:hover {
+      background-color: #744f8d;
+      transform: translateY(-1px);
+    }
+
+    .footer-links {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #a0aec0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <div class="logo">🏢 社内匿名AI診断</div>
+    <div class="subtitle">会社コードとパスワードを入力してください</div>
+
+    <!-- フォーム部分 -->
+    <form onsubmit="handleLogin(event)">
+      <div class="input-group">
+        <label for="company-id">会社コード</label>
+        <input type="text" id="company-id" placeholder="例: comp1234" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">パスワード</label>
+        <input type="password" id="password" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" class="login-btn">ログイン ➔</button>
+    </form>
+
+    <div class="footer-links">
+      ※完全に匿名性を守るため、個人のメールアドレスは不要です。
+    </div>
+  </div>
+
+  <script>
+    // ボタンを押した時の動き（テスト用）
+    function handleLogin(event) {
+      event.preventDefault(); // 画面の勝手なリロードを防ぐ
+      
+      const companyId = document.getElementById('company-id').value;
+      alert(companyId + " としてログインしました！\n次は『16Personalities風のアンケート画面』に進みます。");
+    }
+  </script>
+
+</body>
+</html>
