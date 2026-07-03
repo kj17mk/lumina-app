@@ -10,7 +10,12 @@
         h1 { text-align: center; font-size: 24px; margin-bottom: 5px; }
         .subtitle { text-align: center; color: #64748b; margin-bottom: 25px; font-size: 13px; }
         .start-btn { width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; border: none; padding: 16px; font-size: 16px; font-weight: 800; border-radius: 12px; cursor: pointer; margin-top: 20px; }
-        .next-btn { width: 100%; background: var(--lavender); color: white; border: none; padding: 14px; font-size: 15px; font-weight: bold; border-radius: 10px; cursor: pointer; margin-top: 15px; }
+        
+        /* 💡 戻るボタンと進むボタンを横並びにするスタイル設定 */
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        .back-btn { flex: 1; background: #e2e8f0; color: #475569; border: none; padding: 14px; font-size: 15px; font-weight: bold; border-radius: 10px; cursor: pointer; }
+        .next-btn { flex: 2; background: var(--lavender); color: white; border: none; padding: 14px; font-size: 15px; font-weight: bold; border-radius: 10px; cursor: pointer; }
+        
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); display: flex; justify-content: center; align-items: center; z-index: 9999; }
         .guide-box { background: #ffffff; max-width: 400px; padding: 25px; border-radius: 20px; text-align: center; }
         .close-guide-btn { background: #0f172a; color: #ffffff; border: none; padding: 12px 30px; font-size: 14px; font-weight: 700; border-radius: 12px; cursor: pointer; width: 100%; }
@@ -23,7 +28,8 @@
     </style>
 </head>
 <body>
-    <div class="overlay" id="guideOverlay"><div class="guide-box"><h2>🚀 LUMINA へようこそ</h2><p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こし、組織の闇を消し去る3ステップガイド</p><button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button></div></div>
+
+    <div class="overlay" id="guideOverlay"><div class="guide-box"><h2>🚀 LUMINA へようこそ</h2><p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こし、組織のドロドロを消し去るための3ステップガイド</p><button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button></div></div>
     <div class="container" id="topPage"><h1>🚀 企業デトックス面接SaaS『LUMINA』</h1><div class="subtitle">学歴社会に変革を起こす、最先端の組織デトックス・コックピット</div><button class="start-btn" onclick="document.getElementById('topPage').style.display='none'; document.getElementById('page1').style.display='block'; window.scrollTo(0,0);">アンケートを開始する</button></div>
 
     <!-- 📊 第1章 -->
@@ -34,7 +40,10 @@
         <div class="question-card"><span class="question-title">Q3. ミスを怒られるのが怖くて報告を遅らせたことがありますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">常にある</div><div class="option-button" onclick="selectOpt(this)">ある</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">即報告</div></div></div>
         <div class="question-card"><span class="question-title">Q4. 上司の言葉で傷ついた経験はありますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">常に傷つく</div><div class="option-button" onclick="selectOpt(this)">ある</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">一切ない</div></div></div>
         <div class="question-card"><span class="question-title">Q5. 手柄は上司のもの、ミスは部下のせいにされますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">絶対そう</div><div class="option-button" onclick="selectOpt(this)">多い</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">正当評価</div></div></div>
-        <button class="next-btn" onclick="document.getElementById('page1').style.display='none'; document.getElementById('page2').style.display='block'; window.scrollTo(0,0);">第2章（業務効率の診断）へ進む</button>
+        <div class="btn-group">
+            <button class="back-btn" onclick="document.getElementById('page1').style.display='none'; document.getElementById('topPage').style.display='block'; window.scrollTo(0,0);">戻る</button>
+            <button class="next-btn" onclick="document.getElementById('page1').style.display='none'; document.getElementById('page2').style.display='block'; window.scrollTo(0,0);">第2章へ進む</button>
+        </div>
     </div>
 
     <!-- 🛠️ 第2章 -->
@@ -45,7 +54,10 @@
         <div class="question-card"><span class="question-title">Q8. マニュアルがなく背中を見て覚えろと言われますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">大いに困る</div><div class="option-button" onclick="selectOpt(this)">困る</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">完璧にある</div></div></div>
         <div class="question-card"><span class="question-title">Q9. トラブル時に解決より犯人探しをする空気はありますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">絶対そう</div><div class="option-button" onclick="selectOpt(this)">ある</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">助け合える</div></div></div>
         <div class="question-card"><span class="question-title">Q10. 古いルールや非効率な作業を強要されますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">毎日ある</div><div class="option-button" onclick="selectOpt(this)">多い</div><div class="option-button" onclick="selectOpt(this)">少しある</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">スマート</div></div></div>
-        <button class="next-btn" onclick="document.getElementById('page2').style.display='none'; document.getElementById('page3').style.display='block'; window.scrollTo(0,0);">第3章（社内連携の診断）へ進む</button>
+        <div class="btn-group">
+            <button class="back-btn" onclick="document.getElementById('page2').style.display='none'; document.getElementById('page1').style.display='block'; window.scrollTo(0,0);">戻る</button>
+            <button class="next-btn" onclick="document.getElementById('page2').style.display='none'; document.getElementById('page3').style.display='block'; window.scrollTo(0,0);">第3章へ進む</button>
+        </div>
     </div>
 
     <!-- 🎐 第3章 -->
@@ -53,4 +65,3 @@
         <h2>🎐 第3章：社内連携・人間関係の診断</h2>
         <div class="question-card"><span class="question-title">Q11. 部署同士の連携が悪く、押し付け合いはありますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">最悪に酷い</div><div class="option-button" onclick="selectOpt(this)">酷い</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">ない</div></div></div>
         <div class="question-card"><span class="question-title">Q12. 真面目な人より、立ち回りが上手い人が評価されますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">絶対そう</div><div class="option-button" onclick="selectOpt(this)">常にそう</div><div class="option-button" onclick="selectOpt(this)">多少ある</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">実力評価</div></div></div>
-        <div class="question-card"><span class="question-title">Q13. 会社への不満や愚痴は、陰で多く話されていますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">毎日だらけ</div><div class="option-button" onclick="selectOpt(this)">多い</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">全くない</div></div></div>
