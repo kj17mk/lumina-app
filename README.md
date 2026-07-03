@@ -26,6 +26,7 @@
         .start-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(2,132,199,0.3); }
         .next-btn { width: 100%; background: var(--lavender); color: white; border: none; padding: 18px; font-size: 18px; font-weight: bold; border-radius: 12px; cursor: pointer; margin-top: 30px; box-shadow: 0 4px 15px rgba(139,92,246,0.2); transition: 0.2s; }
         .next-btn:hover { transform: translateY(-2px); background: var(--lavender-hover); box-shadow: 0 6px 20px rgba(139,92,246,0.3); }
+        
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); display: flex; justify-content: center; align-items: center; z-index: 9999; }
         .guide-box { background: #ffffff; max-width: 550px; padding: 40px; border-radius: 24px; border: 1px solid #e2e8f0; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .guide-title { font-size: 24px; font-weight: 800; color: #0f172a; margin-bottom: 25px; }
@@ -35,8 +36,11 @@
         .step-text { color: #334155; font-size: 14px; line-height: 1.5; }
         .close-guide-btn { background: #0f172a; color: #ffffff; border: none; padding: 14px 40px; font-size: 16px; font-weight: 700; border-radius: 12px; cursor: pointer; width: 100%; transition: 0.2s; }
         .close-guide-btn:hover { background: #0284c7; }
+
+        /* 💡 画面切り替えの超シンプルな設定 */
         .page { display: block; }
         .survey-page { display: none; margin-top: 30px; animation: fadeIn 0.4s ease; }
+        
         .question-card { background: #f8fafc; padding: 25px; border-radius: 16px; border: 1px solid #e2e8f0; margin-bottom: 20px; }
         .question-title { font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 15px; display: block; line-height: 1.5; }
         .options-group { display: flex; justify-content: space-between; gap: 10px; }
@@ -76,7 +80,7 @@
 
     <!-- 📊 第1章 -->
     <div class="container survey-page" id="page1">
-        <h1>📊 第1章：上司・ハラスメント of 診断</h1>
+        <h1>📊 第1章：上司・ハラスメントの診断</h1>
         <div class="subtitle">まずは社内の「上司の空気や理不尽さ」について教えてください。（1/4）</div>
         <div class="question-card"><span class="question-title">Q1. 上司が不機嫌なとき、職場の空気は悪くなりますか？</span><div class="options-group"><input type="radio" id="q1_5" name="q1" value="5"><label for="q1_5" class="option-label">めちゃくちゃ悪い</label><input type="radio" id="q1_3" name="q1" value="3"><label for="q1_3" class="option-label">たまに気を遣う</label><input type="radio" id="q1_1" name="q1" value="1"><label for="q1_1" class="option-label">いつも穏やか</label></div></div>
         <div class="question-card"><span class="question-title">Q2. この会社に誰も逆らえない「王様」のようなワンマンな人はいますか？</span><div class="options-group"><input type="radio" id="q2_5" name="q2" value="5"><label for="q2_5" class="option-label">完全に独裁状態</label><input type="radio" id="q2_3" name="q2" value="3"><label for="q2_3" class="option-label">一部にボスがいる</label><input type="radio" id="q2_1" name="q2" value="1"><label for="q2_1" class="option-label">みんな平等</label></div></div>
@@ -86,7 +90,7 @@
         <button class="next-btn" onclick="document.getElementById('page1').style.display='none'; document.getElementById('page2').style.display='block'; window.scrollTo(0,0);">第2章（業務効率の診断）へ進む</button>
     </div>
 
-    <!-- 🛠️ 第2章 -->
+    <!-- 🛠️ 第2章（ガチ直書き！） -->
     <div class="container survey-page" id="page2">
         <h1>🛠️ 第2章：仕事の進め方・無駄の診断</h1>
         <div class="subtitle">次に、日々の業務の効率や理不尽な作業ルールについて教えてください。（2/4）</div>
