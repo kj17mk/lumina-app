@@ -23,18 +23,10 @@
     </style>
 </head>
 <body>
-    <div class="overlay" id="guideOverlay">
-        <div class="guide-box">
-            <h2>🚀 LUMINA へようこそ</h2>
-            <p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こし、組織の闇を消し去る3ステップガイド</p>
-            <button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button>
-        </div>
-    </div>
-    <div class="container" id="topPage">
-        <h1>🚀 企業デトックス面接SaaS『LUMINA』</h1>
-        <div class="subtitle">学歴社会に変革を起こす、最先端の組織デトックス・コックピット</div>
-        <button class="start-btn" onclick="document.getElementById('topPage').style.display='none'; document.getElementById('page1').style.display='block'; window.scrollTo(0,0);">アンケートを開始する</button>
-    </div>
+    <div class="overlay" id="guideOverlay"><div class="guide-box"><h2>🚀 LUMINA へようこそ</h2><p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こし、組織の闇を消し去る3ステップガイド</p><button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button></div></div>
+    <div class="container" id="topPage"><h1>🚀 企業デトックス面接SaaS『LUMINA』</h1><div class="subtitle">学歴社会に変革を起こす、最先端の組織デトックス・コックピット</div><button class="start-btn" onclick="document.getElementById('topPage').style.display='none'; document.getElementById('page1').style.display='block'; window.scrollTo(0,0);">アンケートを開始する</button></div>
+
+    <!-- 📊 第1章 -->
     <div class="container survey-page" id="page1">
         <h2>📊 第1章：上司・ハラスメントの診断</h2>
         <div class="question-card"><span class="question-title">Q1. 上司が不機嫌なとき、職場の空気は悪くなりますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">最悪</div><div class="option-button" onclick="selectOpt(this)">悪い</div><div class="option-button" onclick="selectOpt(this)">普通</div><div class="option-button" onclick="selectOpt(this)">平気</div><div class="option-button" onclick="selectOpt(this)">穏やか</div></div></div>
@@ -44,6 +36,8 @@
         <div class="question-card"><span class="question-title">Q5. 手柄は上司のもの、ミスは部下のせいにされますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">絶対そう</div><div class="option-button" onclick="selectOpt(this)">多い</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">正当評価</div></div></div>
         <button class="next-btn" onclick="document.getElementById('page1').style.display='none'; document.getElementById('page2').style.display='block'; window.scrollTo(0,0);">第2章（業務効率の診断）へ進む</button>
     </div>
+
+    <!-- 🛠️ 第2章 -->
     <div class="container survey-page" id="page2">
         <h2>🛠️ 第2章：仕事の進め方・無駄の診断</h2>
         <div class="question-card"><span class="question-title">Q6. 仕事の中に「やる意味がない」と思う無駄はありますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">山ほどある</div><div class="option-button" onclick="selectOpt(this)">多い</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">一切ない</div></div></div>
@@ -53,30 +47,10 @@
         <div class="question-card"><span class="question-title">Q10. 古いルールや非効率な作業を強要されますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">毎日ある</div><div class="option-button" onclick="selectOpt(this)">多い</div><div class="option-button" onclick="selectOpt(this)">少しある</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">スマート</div></div></div>
         <button class="next-btn" onclick="document.getElementById('page2').style.display='none'; document.getElementById('page3').style.display='block'; window.scrollTo(0,0);">第3章（社内連携の診断）へ進む</button>
     </div>
+
+    <!-- 🎐 第3章 -->
     <div class="container survey-page" id="page3">
         <h2>🎐 第3章：社内連携・人間関係の診断</h2>
         <div class="question-card"><span class="question-title">Q11. 部署同士の連携が悪く、押し付け合いはありますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">最悪に酷い</div><div class="option-button" onclick="selectOpt(this)">酷い</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">ない</div></div></div>
         <div class="question-card"><span class="question-title">Q12. 真面目な人より、立ち回りが上手い人が評価されますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">絶対そう</div><div class="option-button" onclick="selectOpt(this)">常にそう</div><div class="option-button" onclick="selectOpt(this)">多少ある</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">実力評価</div></div></div>
-        <div class="question-card"><span class="question-title">Q13. 会社への不満や愚痴は、陰で多く話されていますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">毎日だらけ</div><div class="option-button" onclick="selectOpt(this)">多い</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div></div></div>
-        <div class="question-card"><span class="question-title">Q14. 職間の空気のせいで、新人がすぐ辞めてしまいますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">全員辞める</div><div class="option-button" onclick="selectOpt(this)">すぐ辞める</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">長く続く</div></div></div>
-        <div class="question-card"><span class="question-title">Q15. 面倒な仕事を押し付け合う空気はありますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">最悪に酷い</div><div class="option-button" onclick="selectOpt(this)">酷い</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">助け合う</div></div></div>
-        <button class="next-btn" onclick="document.getElementById('page3').style.display='none'; document.getElementById('page4').style.display='block'; window.scrollTo(0,0);">第4章（経営へのガチ本音）へ進む</button>
-    </div>
-    <div class="container survey-page" id="page4">
-        <h2>🎯 第4章：社長・経営陣へのガチ本音</h2>
-        <div class="question-card"><span class="question-title">Q16. 上層部が掲げる経営目標に、現場は冷めていますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">冷めきってる</div><div class="option-button" onclick="selectOpt(this)">冷めている</div><div class="option-button" onclick="selectOpt(this)">半分半分</div><div class="option-button" onclick="selectOpt(this)">少し期待</div><div class="option-button" onclick="selectOpt(this)">信じてる</div></div></div>
-        <div class="question-card"><span class="question-title">Q17. もっと現場のリアルな実態を見てくれと思いますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">強く叫びたい</div><div class="option-button" onclick="selectOpt(this)">毎日思う</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">見てくれる</div></div></div>
-        <div class="question-card"><span class="question-title">Q18. 今の給料の金額や評価に納得がいっていませんか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">絶対不満</div><div class="option-button" onclick="selectOpt(this)">不満がある</div><div class="option-button" onclick="selectOpt(this)">少し不満</div><div class="option-button" onclick="selectOpt(this)">ほぼ納得</div><div class="option-button" onclick="selectOpt(this)">満足している</div></div></div>
-        <div class="question-card"><span class="question-title">Q19. もし会社の環境を自由にリセットできるなら望みますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">激しく望む</div><div class="option-button" onclick="selectOpt(this)">強く望む</div><div class="option-button" onclick="selectOpt(this)">迷う</div><div class="option-button" onclick="selectOpt(this)">あまりない</div><div class="option-button" onclick="selectOpt(this)">今のまま</div></div></div>
-        <div class="question-card"><span class="question-title">Q20. 周囲の友人に対して「良い職場だ」と自慢できますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">絶対無理</div><div class="option-button" onclick="selectOpt(this)">できない</div><div class="option-button" onclick="selectOpt(this)">濁す</div><div class="option-button" onclick="selectOpt(this)">少しできる</div><div class="option-button" onclick="selectOpt(this)">自慢する</div></div></div>
-        <button class="next-btn" onclick="alert('全20問の五択アンケートが完了しました！裏側へデータが送信されます！')">デトックス回答を送信する</button>
-    </div>
-    <script>
-        function selectOpt(el) {
-            var siblings = el.parentNode.getElementsByClassName('option-button');
-            for(var i=0; i<siblings.length; i++) { siblings[i].classList.remove('selected'); }
-            el.classList.add('selected');
-        }
-    </script>
-</body>
-</html>
+        <div class="question-card"><span class="question-title">Q13. 会社への不満や愚痴は、陰で多く話されていますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">毎日だらけ</div><div class="option-button" onclick="selectOpt(this)">多い</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">全くない</div></div></div>
