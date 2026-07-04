@@ -42,7 +42,7 @@
     <div class="overlay" id="guideOverlay"><div class="guide-box"><h2>🚀 LUMINA へようこそ</h2><p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こす完全匿名組織デトックス診断</p><button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button></div></div>
     
     <div class="container" id="menuPage">
-        <h1>🚀 組織デトックス面接SaaS『LUMINA』</h1>
+        <h1>🚀 組織デトックス面サイSaaS『LUMINA』</h1>
         <div class="subtitle">ログインしてコックピットを起動してください</div>
         <div class="menu-grid">
             <div class="menu-card">
@@ -52,7 +52,7 @@
             </div>
             <div class="menu-card">
                 <h3>👑 経営陣・社長</h3>
-                <p>組織 of デトックス分析結果を確認します</p>
+                <p>組織のデトックス分析結果を確認します</p>
                 <input type="password" id="passInput" placeholder="管理者パスワード"><button class="menu-btn" onclick="executeLogin(2)">コックピットを開く</button>
             </div>
         </div>
@@ -160,8 +160,11 @@
                 "Q66. 友達に対して「ウチの会社は良い職場だ」と自慢できない？", "Q67. 経営陣が現場の意見を吸い上げる気がないと感じる？", "Q68. 会社の将来性がなく、不安になる感覚はある？", "Q69. 社長のお気に入りだけが出世する人事はある？", "Q70. 会社の理念やビジョンが現場に1ミリも響いてない？",
                 "Q71. 福利厚生やオフィス環境への投資が少ない？", "Q72. トラブルを隠蔽しようとする体質が会社にある？", "Q73. 経営陣の言っていることとやっていることが矛盾している？", "Q74. この会社にいても自分の市場価値は上がらない？", "Q75. ぶっちゃけ、今すぐこの会社を辞めて転職したいですか？"
             ];
-            var opts = ["最悪", "悪い", "普通", "平気", "穏やか"];
+            
+            // 💡 改善：どんな質問にも100%ピッタリ合う、プロ基準の正しい5択表記
+            var opts = ["1. 全くない", "2. あまりない", "3. どちらともいえない", "4. 少しある", "5. 非常にある"];
             var scores =;
+            
             for (var i = 0; i < questions.length; i++) {
                 html += '<div class="question-card">';
                 html += '<span class="question-title">' + questions[i] + '</span>';
