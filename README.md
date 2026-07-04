@@ -10,12 +10,9 @@
         h1 { text-align: center; font-size: 24px; margin-bottom: 5px; }
         .subtitle { text-align: center; color: #64748b; margin-bottom: 25px; font-size: 13px; }
         .start-btn { width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; border: none; padding: 16px; font-size: 16px; font-weight: 800; border-radius: 12px; cursor: pointer; margin-top: 20px; }
-        
-        /* 💡 戻るボタンと進むボタンを横並びにするスタイル設定 */
         .btn-group { display: flex; gap: 10px; margin-top: 20px; }
         .back-btn { flex: 1; background: #e2e8f0; color: #475569; border: none; padding: 14px; font-size: 15px; font-weight: bold; border-radius: 10px; cursor: pointer; }
         .next-btn { flex: 2; background: var(--lavender); color: white; border: none; padding: 14px; font-size: 15px; font-weight: bold; border-radius: 10px; cursor: pointer; }
-        
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); display: flex; justify-content: center; align-items: center; z-index: 9999; }
         .guide-box { background: #ffffff; max-width: 400px; padding: 25px; border-radius: 20px; text-align: center; }
         .close-guide-btn { background: #0f172a; color: #ffffff; border: none; padding: 12px 30px; font-size: 14px; font-weight: 700; border-radius: 12px; cursor: pointer; width: 100%; }
@@ -29,8 +26,21 @@
 </head>
 <body>
 
-    <div class="overlay" id="guideOverlay"><div class="guide-box"><h2>🚀 LUMINA へようこそ</h2><p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こし、組織のドロドロを消し去るための3ステップガイド</p><button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button></div></div>
-    <div class="container" id="topPage"><h1>🚀 企業デトックス面接SaaS『LUMINA』</h1><div class="subtitle">学歴社会に変革を起こす、最先端の組織デトックス・コックピット</div><button class="start-btn" onclick="document.getElementById('topPage').style.display='none'; document.getElementById('page1').style.display='block'; window.scrollTo(0,0);">アンケートを開始する</button></div>
+    <!-- 説明画面 -->
+    <div class="overlay" id="guideOverlay">
+        <div class="guide-box">
+            <h2>🚀 LUMINA へようこそ</h2>
+            <p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こし、組織のドロドロを消し去るための完全匿名アンケート</p>
+            <button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button>
+        </div>
+    </div>
+
+    <!-- 🏠 1ページ目 -->
+    <div class="container page" id="topPage">
+        <h1>🚀 企業デトックス面接SaaS『LUMINA』</h1>
+        <div class="subtitle">学歴社会に変革を起こす、最先端の組織デトックス・コックピット</div>
+        <button class="start-btn" onclick="document.getElementById('topPage').style.display='none'; document.getElementById('page1').style.display='block'; window.scrollTo(0,0);">アンケートを開始する</button>
+    </div>
 
     <!-- 📊 第1章 -->
     <div class="container survey-page" id="page1">
@@ -64,4 +74,3 @@
     <div class="container survey-page" id="page3">
         <h2>🎐 第3章：社内連携・人間関係の診断</h2>
         <div class="question-card"><span class="question-title">Q11. 部署同士の連携が悪く、押し付け合いはありますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">最悪に酷い</div><div class="option-button" onclick="selectOpt(this)">酷い</div><div class="option-button" onclick="selectOpt(this)">たまに</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">ない</div></div></div>
-        <div class="question-card"><span class="question-title">Q12. 真面目な人より、立ち回りが上手い人が評価されますか？</span><div class="options-group"><div class="option-button" onclick="selectOpt(this)">絶対そう</div><div class="option-button" onclick="selectOpt(this)">常にそう</div><div class="option-button" onclick="selectOpt(this)">多少ある</div><div class="option-button" onclick="selectOpt(this)">ほぼない</div><div class="option-button" onclick="selectOpt(this)">実力評価</div></div></div>
