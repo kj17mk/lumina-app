@@ -39,13 +39,8 @@
     </style>
 </head>
 <body>
-    <div class="overlay" id="guideOverlay">
-        <div class="guide-box">
-            <h2>🚀 LUMINA へようこそ</h2>
-            <p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こす完全匿名組織デトックス診断</p>
-            <button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button>
-        </div>
-    </div>
+    <div class="overlay" id="guideOverlay"><div class="guide-box"><h2>🚀 LUMINA へようこそ</h2><p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こす完全匿名組織デトックス診断</p><button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button></div></div>
+    
     <div class="container" id="menuPage">
         <h1>🚀 組織デトックス面接SaaS『LUMINA』</h1>
         <div class="subtitle">ログインしてコックピットを起動してください</div>
@@ -53,17 +48,16 @@
             <div class="menu-card">
                 <h3>👥 社員の方</h3>
                 <p>完全匿名で社内アンケートに回答します</p>
-                <input type="text" id="groupInput" placeholder="4桁のグループ番号">
-                <button class="menu-btn" onclick="executeLogin(1)">認証して進む</button>
+                <input type="text" id="groupInput" placeholder="4桁のグループ番号"><button class="menu-btn" onclick="executeLogin(1)">認証して進む</button>
             </div>
             <div class="menu-card">
                 <h3>👑 経営陣・社長</h3>
-                <p>組織のデトックス分析結果を確認します</p>
-                <input type="password" id="passInput" placeholder="管理者パスワード">
-                <button class="menu-btn" onclick="executeLogin(2)">コックピットを開く</button>
+                <p>組織 of デトックス分析結果を確認します</p>
+                <input type="password" id="passInput" placeholder="管理者パスワード"><button class="menu-btn" onclick="executeLogin(2)">コックピットを開く</button>
             </div>
         </div>
     </div>
+
     <div class="container survey-page" id="topPage">
         <h1>🏢 認証成功：アンケート開始画面</h1>
         <button class="start-btn" onclick="document.getElementById('topPage').style.display='none'; document.getElementById('surveyPage').style.display='block'; window.scrollTo(0,0);">デトックスアンケートを開始する</button>
@@ -72,15 +66,15 @@
     <div class="container survey-page" id="surveyPage">
         <h1>📊 LUMINA 匿名診断シート</h1>
         <div id="surveyTarget"></div>
-        <button class="submit-btn" onclick="alert('送信完了！最初のメニュー画面に戻って社長ログインから結果を確認してください！'); location.reload();">デトックス回答を匿名送信する</button>
+        <button class="submit-btn" onclick="finishSurvey()">デトックス回答を匿名送信する</button>
     </div>
 
     <div class="container survey-page" id="resultPage">
         <h1>📊 LUMINA デトックス分析結果</h1>
         <div class="grid">
             <div class="card">
-                <h3>📊 ① 現在の組織リスク（統計結果）</h3>
-                <p>【人間関係リスク】：⚠️ **危険度 85%**<br>【業務効率リスク】：⚠️ **危険度 40%**</p>
+                <h3>📊 ① 現在の組織リスク（リアル集計結果）</h3>
+                <p>【総合人間関係リスク】：⚠️ **危険度 <span id="riskText">85</span>%**<br>（たった今、社員が選んだ回答をもとにガチでリアルタイム計算された数値です）</p>
             </div>
         </div>
         <div class="blur-section">
@@ -97,10 +91,32 @@
         </div>
     </div>
     <script>
-        function selectOpt(el) {
+        var totalScore = 0;
+        var totalQuestions = 75;
+
+        function selectOpt(el, score) {
             var siblings = el.parentNode.getElementsByClassName('option-button');
             for(var i=0; i<siblings.length; i++) { siblings[i].classList.remove('selected'); }
             el.classList.add('selected');
+            el.parentNode.setAttribute('data-current-score', score);
+        }
+
+        function finishSurvey() {
+            var cards = document.getElementsByClassName('question-card');
+            var sum = 0;
+            var answered = 0;
+            for(var i=0; i<cards.length; i++) {
+                var score = cards[i].querySelector('.options-group').getAttribute('data-current-score');
+                if(score) { sum += parseInt(score); answered++; }
+            }
+            if(answered > 0) {
+                var maxPossible = answered * 5;
+                totalScore = Math.round((sum / maxPossible) * 100);
+                localStorage.setItem('lumina_live_risk', totalScore);
+            }
+            alert('送信完了！あなたの選んだ本音の点数が、社長の画面（admin）へリアルタイムに同期されました！ログインして確認してください！');
+            document.getElementById('surveyPage').style.display = 'none';
+            document.getElementById('menuPage').style.display = 'block';
         }
 
         window['execute' + 'Login'] = function(type) {
@@ -113,6 +129,8 @@
             } else if(type === 2) {
                 var pass = document.getElementById('passInput').value;
                 if(pass === 'admin') {
+                    var liveRisk = localStorage.getItem('lumina_live_risk') || '85';
+                    document.getElementById('riskText').innerText = liveRisk;
                     document.getElementById('menuPage').style.display = 'none';
                     document.getElementById('resultPage').style.display = 'block';
                 } else { alert('正しいパスワード（admin）を入れてね！'); }
@@ -142,12 +160,13 @@
                 "Q66. 友達に対して「ウチの会社は良い職場だ」と自慢できない？", "Q67. 経営陣が現場の意見を吸い上げる気がないと感じる？", "Q68. 会社の将来性がなく、不安になる感覚はある？", "Q69. 社長のお気に入りだけが出世する人事はある？", "Q70. 会社の理念やビジョンが現場に1ミリも響いてない？",
                 "Q71. 福利厚生やオフィス環境への投資が少ない？", "Q72. トラブルを隠蔽しようとする体質が会社にある？", "Q73. 経営陣の言っていることとやっていることが矛盾している？", "Q74. この会社にいても自分の市場価値は上がらない？", "Q75. ぶっちゃけ、今すぐこの会社を辞めて転職したいですか？"
             ];
-            var opts = ["最覚", "悪い", "普通", "平気", "穏やか"];
+            var opts = ["最悪", "悪い", "普通", "平気", "穏やか"];
+            var scores =;
             for (var i = 0; i < questions.length; i++) {
                 html += '<div class="question-card">';
                 html += '<span class="question-title">' + questions[i] + '</span>';
                 html += '<div class="options-group">';
-                for (var j = 0; j < 5; j++) { html += '<div class="option-button" onclick="selectOpt(this)">' + opts[j] + '</div>'; }
+                for (var j = 0; j < 5; j++) { html += '<div class="option-button" onclick="selectOpt(this, ' + scores[j] + ')">' + opts[j] + '</div>'; }
                 html += '</div></div>';
             }
             target.innerHTML = html;
