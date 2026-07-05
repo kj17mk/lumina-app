@@ -4,31 +4,36 @@
     <meta charset="UTF-8">
     <title>🚀 LUMINA</title>
     <style>
-        :root { --bg: linear-gradient(135deg, #f0f7ff, #ffffff); --panel: #ffffff; --text: #1e293b; --lavender: linear-gradient(135deg, #a78bfa, #8b5cf6); }
+        :root { --bg: linear-gradient(135deg, #f8fafc, #ffffff); --panel: #ffffff; --text: #1e293b; }
         body { font-family: sans-serif; background: var(--bg); margin: 0; padding: 30px 10px; color: var(--text); }
-        .container { max-width: 650px; margin: 0 auto; background: var(--panel); padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-        h1 { text-align: center; font-size: 24px; margin-bottom: 5px; color: #0f172a; }
+        .container { max-width: 650px; margin: 0 auto; background: var(--panel); padding: 25px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
+        h1 { text-align: center; font-size: 24px; font-weight: 900; margin-bottom: 5px; color: #0f172a; }
         .subtitle { text-align: center; color: #64748b; margin-bottom: 25px; font-size: 13px; }
         .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-        .menu-card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; text-align: center; }
-        .menu-card h3 { margin-top: 0; font-size: 16px; }
+        .menu-card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 16px; text-align: center; }
+        .menu-card h3 { margin-top: 0; font-size: 15px; }
         .menu-card p { font-size: 11px; color: #64748b; margin-bottom: 15px; }
         input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 14px; box-sizing: border-box; text-align: center; margin-bottom: 10px; }
         .menu-btn { width: 100%; padding: 12px; font-size: 13px; font-weight: bold; border-radius: 8px; border: none; cursor: pointer; color: white; background: #0f172a; }
         .start-btn { width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; border: none; padding: 18px; font-size: 18px; font-weight: 800; border-radius: 12px; cursor: pointer; margin-top: 20px; }
-        .submit-btn { width: 100%; background: var(--lavender); color: white; border: none; padding: 18px; font-size: 18px; font-weight: 800; border-radius: 12px; cursor: pointer; margin-top: 30px; }
+        .submit-btn { width: 100%; background: linear-gradient(135deg, #a78bfa, #8b5cf6); color: white; border: none; padding: 18px; font-size: 18px; font-weight: 800; border-radius: 12px; cursor: pointer; margin-top: 30px; }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); display: flex; justify-content: center; align-items: center; z-index: 9999; }
         .guide-box { background: #ffffff; max-width: 400px; padding: 25px; border-radius: 20px; text-align: center; }
         .close-guide-btn { background: #0f172a; color: #ffffff; border: none; padding: 12px 30px; font-size: 14px; font-weight: 700; border-radius: 12px; cursor: pointer; width: 100%; }
         .survey-page { display: none; margin-top: 15px; }
-        .question-card { background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 12px; }
-        .question-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; display: block; }
-        .options-group { display: flex; justify-content: space-between; gap: 4px; }
-        .option-button { flex: 1; text-align: center; background: #ffffff; padding: 8px 4px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 11px; color: #64748b; cursor: pointer; }
-        .option-button.selected { background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; border-color: #15803d; font-weight: bold; }
+        .question-card { background: #ffffff; padding: 25px 15px; border-bottom: 1px solid #edf2f7; text-align: center; margin-bottom: 10px; }
+        .question-title { font-size: 15px; font-weight: 700; margin-bottom: 20px; display: block; color: #0f172a; line-height: 1.5; }
+        .mbti-group { display: flex; justify-content: center; align-items: center; gap: 15px; }
+        .mbti-label { font-size: 12px; font-weight: bold; }
+        .mbti-btn { border-radius: 50%; border: 2px solid #cbd5e1; background: #ffffff; cursor: pointer; transition: all 0.2s ease; display: inline-block; }
+        .mbti-btn.b-lg { width: 40px; height: 40px; }
+        .mbti-btn.b-md { width: 32px; height: 32px; }
+        .mbti-btn.b-sm { width: 24px; height: 24px; }
+        .mbti-btn:hover { border-color: #38bdf8; background: #f0f9ff; }
+        .mbti-btn.selected { background: #38bdf8 !important; border-color: #0284c7 !important; box-shadow: 0 0 12px rgba(56,189,248,0.5); }
         select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 14px; background: #ffffff; outline: none; margin-bottom: 10px; }
         .grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; }
-        .card { background: #f8fafc; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .card { background: #f8fafc; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: left; }
         .card h3 { margin-top: 0; color: #0f172a; font-size: 16px; }
         .card p { color: #64748b; line-height: 1.6; font-size: 13px; }
         .blur-section { filter: blur(6px); opacity: 0.5; pointer-events: none; }
@@ -39,10 +44,9 @@
     </style>
 </head>
 <body>
-    <div class="overlay" id="guideOverlay"><div class="guide-box"><h2>🚀 LUMINA へようこそ</h2><p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こす完全匿名組織デトックス診断</p><button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button></div></div>
-    
+    <div class="overlay" id="guideOverlay"><div class="guide-box"><h2>🚀 LUMINA へようこそ</h2><p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こす、MBTIデザイン採用の完全匿名デトックスアンケート</p><button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button></div></div>
     <div class="container" id="menuPage">
-        <h1>🚀 組織デトックス面サイSaaS『LUMINA』</h1>
+        <h1>🚀 組織デトックス面接SaaS『LUMINA』</h1>
         <div class="subtitle">ログインしてコックピットを起動してください</div>
         <div class="menu-grid">
             <div class="menu-card">
@@ -57,7 +61,6 @@
             </div>
         </div>
     </div>
-
     <div class="container survey-page" id="topPage">
         <h1>🏢 認証成功：アンケート開始画面</h1>
         <button class="start-btn" onclick="document.getElementById('topPage').style.display='none'; document.getElementById('surveyPage').style.display='block'; window.scrollTo(0,0);">デトックスアンケートを開始する</button>
@@ -79,9 +82,9 @@
         </div>
         <div class="blur-section">
             <div class="grid">
-                <div class="card"><h3>📊 ② 分析結果（要約された自社の弱み）</h3><p>「上司が不機嫌なときに、周囲が気を遣って連絡が遅れる」という類の意見が全体の多くを占める結果となりました。</p></div>
-                <div class="card" style="border-left-color: #10b981;"><h3>🛠️ ③ この対策を行います</h3><p>まずは「上司の機嫌関係なく、1日1回5分間、定型のテンプレートだけで業務進捗を共有し合うルール」を導入してください。</p></div>
-                <div class="card" style="border-left-color: #f59e0b;"><h3>🎯 ④ 面接質問</h3><p>1. 「上司が不機嫌なとき、どうやって自分の意見を伝える？」<br>2. 「最初の1週間でどんな小さな行動から改善しようとしますか？」</p></div>
+                <div class="card"><h3>📊 ② 分析結果（要約された自社の弱み）</h3><p>「上層部の不機嫌さによって現場の連絡が遅れる」という類の意見が全体の多くを占める結果となりました。</p></div>
+                <div class="card" style="border-left-color: #10b981;"><h3>🛠️ ③ この対策を行います</h3><p>まずは「上層部の機嫌に関係なく、1日1回5分間、定型のテンプレートだけで業務進捗を共有し合うルール」を導入してください。</p></div>
+                <div class="card" style="border-left-color: #f59e0b;"><h3>🎯 ④ 面接質問</h3><p>1. 「上層部が不機嫌なとき、どうやって自分の意見を伝える？」<br>2. 「最初の1週間でどんな小さな行動から改善しようとしますか？」</p></div>
             </div>
         </div>
         <div class="pay-box">
@@ -89,32 +92,31 @@
             <div class="pay-price">スタンダードプラン：月額 100,000 円</div>
             <button class="pay-btn" onclick="alert('月額10万円のサブスクによって、社長の口座に自動で大金がチャリンチャリンと振り込まれ続けます！')">モザイクを解除して会社を救う</button>
         </div>
-    </div>
+  </div>
     <script>
         var totalScore = 0;
-        var totalQuestions = 75;
 
-        function selectOpt(el, score) {
-            var siblings = el.parentNode.getElementsByClassName('option-button');
-            for(var i=0; i<siblings.length; i++) { siblings[i].classList.remove('selected'); }
+        function selectMbti(el, score) {
+            var siblings = el.parentNode.getElementsByClassName('mbti-btn');
+            for(var i=0; i<siblings.length; i++) { 
+                siblings[i].classList.remove('selected'); 
+            }
             el.classList.add('selected');
             el.parentNode.setAttribute('data-current-score', score);
         }
 
         function finishSurvey() {
             var cards = document.getElementsByClassName('question-card');
-            var sum = 0;
-            var answered = 0;
+            var sum = 0; var answered = 0;
             for(var i=0; i<cards.length; i++) {
-                var score = cards[i].querySelector('.options-group').getAttribute('data-current-score');
+                var score = cards[i].querySelector('.mbti-group').getAttribute('data-current-score');
                 if(score) { sum += parseInt(score); answered++; }
             }
             if(answered > 0) {
-                var maxPossible = answered * 5;
-                totalScore = Math.round((sum / maxPossible) * 100);
+                totalScore = Math.round((sum / (answered * 5)) * 100);
                 localStorage.setItem('lumina_live_risk', totalScore);
             }
-            alert('送信完了！あなたの選んだ本音の点数が、社長の画面（admin）へリアルタイムに同期されました！ログインして確認してください！');
+            alert('送信完了！あなたの選んだ本音の点数が、社長の画面（admin）へリアルタイムに同期されました！');
             document.getElementById('surveyPage').style.display = 'none';
             document.getElementById('menuPage').style.display = 'block';
         }
@@ -161,15 +163,18 @@
                 "Q71. 福利厚生やオフィス環境への投資が少ない？", "Q72. トラブルを隠蔽しようとする体質が会社にある？", "Q73. 経営陣の言っていることとやっていることが矛盾している？", "Q74. この会社にいても自分の市場価値は上がらない？", "Q75. ぶっちゃけ、今すぐこの会社を辞めて転職したいですか？"
             ];
             
-            // 💡 改善：どんな質問にも100%ピッタリ合う、プロ基準の正しい5択表記
-            var opts = ["1. 全くない", "2. あまりない", "3. どちらともいえない", "4. 少しある", "5. 非常にある"];
-            var scores =;
-            
+            // 💡 5つの丸ボタン。選んだものだけが美しく「水色」に変化するよう割り当て
             for (var i = 0; i < questions.length; i++) {
                 html += '<div class="question-card">';
                 html += '<span class="question-title">' + questions[i] + '</span>';
-                html += '<div class="options-group">';
-                for (var j = 0; j < 5; j++) { html += '<div class="option-button" onclick="selectOpt(this, ' + scores[j] + ')">' + opts[j] + '</div>'; }
+                html += '<div class="mbti-group">';
+                html += '<span class="mbti-label" style="color:#0284c7; margin-right:5px;">同意</span>';
+                html += '<button class="mbti-btn b-lg" onclick="selectMbti(this,5)"></button>';
+                html += '<button class="mbti-btn b-md" onclick="selectMbti(this,4)"></button>';
+                html += '<button class="mbti-btn b-sm" onclick="selectMbti(this,3)"></button>';
+                html += '<button class="mbti-btn b-sm" onclick="selectMbti(this,2)"></button>';
+                html += '<button class="mbti-btn b-md" onclick="selectMbti(this,1)"></button>';
+                html += '<span class="mbti-label" style="color:#64748b; margin-left:5px;">反対</span>';
                 html += '</div></div>';
             }
             target.innerHTML = html;
