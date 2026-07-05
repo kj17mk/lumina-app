@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>🚀 LUMINA</title>
     <style>
-        :root { --bg: linear-gradient(135deg, #f8fafc, #ffffff); --panel: #ffffff; --text: #1e293b; }
+        :root { --bg: linear-gradient(135deg, #f8fafc, #ffffff); --panel: #ffffff; --text: #1e293b; --lavender: linear-gradient(135deg, #a78bfa, #8b5cf6); }
         body { font-family: sans-serif; background: var(--bg); margin: 0; padding: 30px 10px; color: var(--text); }
         .container { max-width: 650px; margin: 0 auto; background: var(--panel); padding: 25px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
         h1 { text-align: center; font-size: 24px; font-weight: 900; margin-bottom: 5px; color: #0f172a; }
@@ -16,7 +16,7 @@
         input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 14px; box-sizing: border-box; text-align: center; margin-bottom: 10px; }
         .menu-btn { width: 100%; padding: 12px; font-size: 13px; font-weight: bold; border-radius: 8px; border: none; cursor: pointer; color: white; background: #0f172a; }
         .start-btn { width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; border: none; padding: 18px; font-size: 18px; font-weight: 800; border-radius: 12px; cursor: pointer; margin-top: 20px; }
-        .submit-btn { width: 100%; background: linear-gradient(135deg, #a78bfa, #8b5cf6); color: white; border: none; padding: 18px; font-size: 18px; font-weight: 800; border-radius: 12px; cursor: pointer; margin-top: 30px; }
+        .submit-btn { width: 100%; background: var(--lavender); color: white; border: none; padding: 18px; font-size: 18px; font-weight: 800; border-radius: 12px; cursor: pointer; margin-top: 30px; }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); display: flex; justify-content: center; align-items: center; z-index: 9999; }
         .guide-box { background: #ffffff; max-width: 400px; padding: 25px; border-radius: 20px; text-align: center; }
         .close-guide-btn { background: #0f172a; color: #ffffff; border: none; padding: 12px 30px; font-size: 14px; font-weight: 700; border-radius: 12px; cursor: pointer; width: 100%; }
@@ -158,10 +158,11 @@
                 "Q51. 社内イベントの強制参加の圧力はありますか？", "Q52. 会話が少なく、職場全体がいつも暗い？", "Q53. 手柄の横取りや責任の押し付け合いがある？", "Q54. 異動や配属の希望が本人の意思に関係なく決まる？", "Q55. 失敗した人を立ち上がれないほど冷遇する空気は？",
                 "Q56. 社内の噂話が広まるスピードが異常に早い？", "Q57. 誰かが孤立しているのを周囲が見て見ぬ振り？", "Q58. お互いの価値観や個性を認め合える多様性がない？", "Q59. メンタルを崩して休職する人が定期的にいる？", "Q60. この職場の人間関係はよくないと感じますか？",
                 "Q61. 社長が掲げる綺麗事の目標に現場は冷めてる？", "Q62. もっと現場のリアルを見てくれと叫びたい？", "Q63. 今の給料の金額やボーナスに対して納得がいかない？", "Q64. 評価の基準が不明確で、どう頑張ればいいか不明？", "Q65. もし会社を自由にリセットできるスイッチがあれば押す？",
-                "Q66. 友達に対して「ウチの会社は良い職場だ」と自慢できない？", "Q67. 経営陣が現場の意見を吸い上げる気がないと感じる？", "Q68. 会社の将来性がなく、不安になる感覚はある？", "Q69. 社長のお気に入りだけが出世する人事はある？", "Q70. 会社の理念やビジョンが現場に1ミリも響いてない？",
+                "Q66. Friendsに対して「ウチの会社は良い職場だ」と自慢できない？", "Q67. 経営陣が現場の意見を吸い上げる気がないと感じる？", "Q68. 会社の将来性がなく、不安になる感覚はある？", "Q69. 社長のお気に入りだけが出世する人事はある？", "Q70. 会社の理念やビジョンが現場に1ミリも響いてない？",
                 "Q71. 福利厚生やオフィス環境への投資が少ない？", "Q72. トラブルを隠蔽しようとする体質が会社にある？", "Q73. 経営陣の言っていることとやっていることが矛盾している？", "Q74. この会社にいても自分の市場価値は上がらない？", "Q75. ぶっちゃけ、今すぐこの会社を辞めて転職したいですか？"
             ];
             
+            // 💡 完璧なMBTI風丸ボタンの自動生成処理（選んだ丸が綺麗に水色に染まります！）
             for (var i = 0; i < questions.length; i++) {
                 html += '<div class="question-card">';
                 html += '<span class="question-title">' + questions[i] + '</span>';
