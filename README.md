@@ -92,7 +92,7 @@
             <div class="pay-price">スタンダードプラン：月額 100,000 円</div>
             <button class="pay-btn" onclick="alert('月額10万円のサブスクによって、社長の口座に自動で大金がチャリンチャリンと振り込まれ続けます！')">モザイクを解除して会社を救う</button>
         </div>
-  </div>
+    </div>
     <script>
         var totalScore = 0;
 
@@ -144,7 +144,6 @@
             var html = '';
             html += `<div class="question-card"><span class="question-title">【属性①】あなたの性別を教えてください</span><select><option>完全匿名</option><option>男性</option><option>女性</option></select></div>`;
             html += `<div class="question-card"><span class="question-title">【属性②】あなたの年齢層を教えてください</span><select><option>20代</option><option>30代</option><option>40代</option></select></div>`;
-            
             var questions = [
                 "Q1. 上司の不機嫌さで職場の空気は重くなりますか？", "Q2. 社内に強い影響力を持つワンマンな上司はいますか？", "Q3. ミスを指摘されるのが心配で報告が遅れたことは？", "Q4. 上司の対応に深く悩んだ経験はありますか？", "Q5. 成果の評価や責任の所在に理不尽さを感じますか？",
                 "Q6. 指示がコロコロ変わって現場は混乱しますか？", "Q7. 特定の部下だけを優遇するような偏りはありますか？", "Q8. 有給休暇を申請するときに気まずさを感じる？", "Q9. 定時で帰りづらい同調圧力はありますか？", "Q10. 上司が自分の意見を絶対に曲げない頑固さは？",
@@ -163,7 +162,6 @@
                 "Q71. 福利厚生やオフィス環境への投資が少ない？", "Q72. トラブルを隠蔽しようとする体質が会社にある？", "Q73. 経営陣の言っていることとやっていることが矛盾している？", "Q74. この会社にいても自分の市場価値は上がらない？", "Q75. ぶっちゃけ、今すぐこの会社を辞めて転職したいですか？"
             ];
             
-            // 💡 5つの丸ボタン。選んだものだけが美しく「水色」に変化するよう割り当て
             for (var i = 0; i < questions.length; i++) {
                 html += '<div class="question-card">';
                 html += '<span class="question-title">' + questions[i] + '</span>';
