@@ -93,4 +93,53 @@
             <div class="pay-price">スタンダードプラン：月額 100,000 円</div>
             <button class="pay-btn" onclick="alert('月額10万円のサブスクによって、社長の口座に自動で大金がチャリンチャリンと振り込まれ続けます！')">モザイクを解除して会社を救う</button>
         </div>
-    </div>
+    </div>    
+    <script>
+        var totalScore = 0;
+
+        function selectMbti(el, score) {
+            var siblings = el.parentNode.getElementsByClassName('mbti-btn');
+            for(var i=0; i<siblings.length; i++) { siblings[i].classList.remove('selected'); }
+            el.classList.add('selected');
+            el.parentNode.setAttribute('data-current-score', score);
+        }
+
+        function finishSurvey() {
+            var cards = document.getElementsByClassName('question-card');
+            var sum = 0; var answered = 0;
+            for(var i=0; i<cards.length; i++) {
+                var score = cards[i].querySelector('.mbti-group').getAttribute('data-current-score');
+                if(score) { sum += parseInt(score); answered++; }
+            }
+            if(answered > 0) {
+                totalScore = Math.round((sum / (answered * 5)) * 100);
+                localStorage.setItem('lumina_live_risk', totalScore);
+            }
+            alert('送信完了！あなたの選んだ本音の点数が、社長の画面（admin）へリアルタイムに同期されました！');
+            document.getElementById('surveyPage').style.display = 'none';
+            document.getElementById('menuPage').style.display = 'block';
+        }
+
+        window['execute' + 'Login'] = function(type) {
+            if(type === 1) {
+                var code = document.getElementById('groupInput').value;
+                if(code === '1234') {
+                    document.getElementById('menuPage').style.display = 'none';
+                    document.getElementById('topPage').style.display = 'block';
+                } else { alert('正しい番号（1234）を入れてね！'); }
+            } else if(type === 2) {
+                var pass = document.getElementById('passInput').value;
+                if(pass === 'admin') {
+                    var liveRisk = localStorage.getItem('lumina_live_risk') || '85';
+                    document.getElementById('riskText').innerText = liveRisk;
+                    document.getElementById('menuPage').style.display = 'none';
+                    document.getElementById('resultPage').style.display = 'block';
+                } else { alert('正しいパスワード（admin）を入れてね！'); }
+            }
+        };
+
+        window.addEventListener('DOMContentLoaded', function() {
+            var target = document.getElementById('surveyTarget');
+            var html = '';
+            html += `<div class="question-card"><span class="question-title">【属性①】あなたの性別を教えてください</span><select><option>完全匿名</option><option>男性</option><option>女性</option></select></div>`;
+            html += `<div class="question-card"><span class="question-title">【属性②】あなたの年齢層を教えてください</span><select><option>20代</option><option>30代</option><option>40代</option></select></div>`;
