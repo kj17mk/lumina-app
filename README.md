@@ -45,6 +45,7 @@
 </head>
 <body>
     <div class="overlay" id="guideOverlay"><div class="guide-box"><h2>🚀 LUMINA へようこそ</h2><p style="color:#64748b; font-size:12px; margin-bottom:20px;">学歴社会に変革を起こす、MBTIデザイン採用の完全匿名デトックスアンケート</p><button class="close-guide-btn" onclick="document.getElementById('guideOverlay').style.display='none'">LUMINA を起動する</button></div></div>
+    
     <div class="container" id="menuPage">
         <h1>🚀 組織デトックス面接SaaS『LUMINA』</h1>
         <div class="subtitle">ログインしてコックピットを起動してください</div>
@@ -59,37 +60,5 @@
                 <p>組織のデトックス分析結果を確認します</p>
                 <input type="password" id="passInput" placeholder="管理者パスワード"><button class="menu-btn" onclick="executeLogin(2)">コックピットを開く</button>
             </div>
-        </div>
-    </div>
-    <div class="container survey-page" id="topPage">
-        <h1>🏢 認証成功：アンケート開始画面</h1>
-        <button class="start-btn" onclick="document.getElementById('topPage').style.display='none'; document.getElementById('surveyPage').style.display='block'; window.scrollTo(0,0);">デトックスアンケートを開始する</button>
-    </div>
-
-    <div class="container survey-page" id="surveyPage">
-        <h1>📊 LUMINA 匿名診断シート</h1>
-        <div id="surveyTarget"></div>
-        <button class="submit-btn" onclick="finishSurvey()">デトックス回答を匿名送信する</button>
-    </div>
-
-    <div class="container survey-page" id="resultPage">
-        <h1>📊 LUMINA デトックス分析結果</h1>
-        <div class="grid">
-            <div class="card">
-                <h3>📊 ① 現在の組織リスク（リアル集計結果）</h3>
-                <p>【総合人間関係リスク】：⚠️ **危険度 <span id="riskText">85</span>%**<br>（たった今、社員が選んだ回答をもとにガチでリアルタイム計算された数値です）</p>
-            </div>
-        </div>
-        <div class="blur-section">
-            <div class="grid">
-                <div class="card"><h3>📊 ② 分析結果（要約された自社の弱み）</h3><p>「上層部の不機嫌さによって現場の連絡が遅れる」という類の意見が全体の多くを占める結果となりました。</p></div>
-                <div class="card" style="border-left-color: #10b981;"><h3>🛠️ ③ この対策を行います</h3><p>まずは「上層部の機嫌に関係なく、1日1回5分間、定型のテンプレートだけで業務進捗を共有し合うルール」を導入してください。</p></div>
-                <div class="card" style="border-left-color: #f59e0b;"><h3>🎯 ④ 面接質問</h3><p>1. 「上層部が不機嫌なとき、どうやって自分の意見を伝える？」<br>2. 「最初の1週間でどんな小さな行動から改善しようとしますか？」</p></div>
-            </div>
-        </div>
-        <div class="pay-box">
-            <div class="pay-title">🔒 組織デトックス解決レポート（ロック中）</div>
-            <div class="pay-price">スタンダードプラン：月額 100,000 円</div>
-            <button class="pay-btn" onclick="alert('月額10万円のサブスクによって、社長の口座に自動で大金がチャリンチャリンと振り込まれ続けます！')">モザイクを解除して会社を救う</button>
         </div>
     </div>
